@@ -1,0 +1,35 @@
+﻿@model RentaCar.Areas.Admin.Models.Cars
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+<div class="fotoebackgroundittformes container">
+    <form class=" border border-dark p-5 text-left" method="get" asp-action="Search">
+        <p class="h4 mb-4">Search a Cars For Booking</p>
+
+        <label>Name</label>
+        <input type="text" class="form-control mb-4" id="Name" placeholder="Name" asp-for="Name">
+
+        <label>Modeli</label>
+        <select class="form-control mb-4" asp-for="Model" asp-items="@Html.GetEnumSelectList(typeof(Modeli))">
+            <option></option>
+        </select>
+
+        <label>Color</label>
+        <select class="form-control mb-4" asp-for="Color" asp-items="@Html.GetEnumSelectList(typeof(Color))">
+            <option></option>
+        </select>
+
+        <label>Type</label>
+        <select class="form-control mb-4" asp-for="Type" asp-items="@Html.GetEnumSelectList(typeof(Tipi))">
+            <option></option>
+        </select>
+
+        <button class="btn btn-info btn-block" type="submit">Search</button>
+    </form>
+</div>
+<div class="container ">
+    <img src="~/images/fotoperqef.png" alt="ka foto" class="img-fluid" width="100%"  />
+
+</div>
+

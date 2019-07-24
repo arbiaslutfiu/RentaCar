@@ -1,0 +1,40 @@
+﻿@model IEnumerable<IdentityUser>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Users</h2>
+<form asp-action="Filtro" method="get" class="form-group text-center form-inline">
+    <input type="Email" name="Email" placeholder="Email" class="input-group-text" />
+    <input type="submit" value="Filtro" class="btn btn-success "/>
+</form>
+
+
+<p>
+    <a class="btn btn-info p-1" asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Email
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var user in Model)
+        {
+            <tr>
+                <td>
+                    @user.Email
+                </td>
+                <td>
+                    <a class="btn btn-success p-1" asp-action="Edit" asp-route-id="@user.Id">Edit</a> |
+                    <a class="btn btn-danger p-1" asp-action="Delete" asp-route-id="@user.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

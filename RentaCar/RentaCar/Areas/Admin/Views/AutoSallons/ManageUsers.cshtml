@@ -1,0 +1,46 @@
+﻿@model RentaCar.Areas.Admin.Models.ManageUsersViewModel
+@{
+    ViewData["Title"] = "ManageUsers";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<h2>ManageUsers</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Email
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.AssignedUsers)
+        {
+            <tr>
+                <td>
+                    @item.Email
+                </td>
+                <td>
+                    <a asp-action="RemoveUserFromAutosSallon" asp-route-id="@Model.Id" asp-route-userId="@item.Id" class="btn btn-danger p-1">Remove</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="AddUserToAutoSallon" method="post">
+            <input type="hidden" name="id" value="@Model.Id" />
+            <div class="form-group">
+                <label class="control-label"></label>
+                <select name="userId" class="form-control" asp-items="Model.AvailableUsersSelectList"></select>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Add" class="btn btn-success " />
+            </div>
+        </form>
+    </div>
+</div>

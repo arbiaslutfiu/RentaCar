@@ -1,0 +1,115 @@
+﻿@model  ViewModel
+
+@{
+// ViewData["Title"] =;
+}
+
+
+    @if (User.IsInRole("Administrator"))
+    {
+        <h2>Hello Admin</h2>
+    }
+    else
+    { }
+        <h2>
+        @if (@ViewBag.tituli == null || @ViewBag.tituli == "")
+        {
+            if (ViewBag.Boull)
+            {
+                ViewBag.tituli = "All Cars";
+                @ViewBag.tituli
+            }
+            else
+            {
+                <span>This User is not linked with a Autosallon</span>
+            }
+        }
+        else
+        {
+            @ViewBag.tituli;
+        }
+            
+    </h2>
+       @if (ViewBag.Boull)
+       {
+        @* @Html.DropDownList("Selected", ViewBag.AutoSallon as SelectList)*@
+        <form asp-action="Index" method="post">
+            <select asp-for="ATS" class="form-control" asp-items="ViewBag.AutoSallon"></select>
+            <input type="submit" value="Select" />
+        </form>
+
+    <!--   .FirstOrDefault(ats => ats.SuperAcount == User.Identity).Name -->
+
+
+<p>
+    <a class="btn btn-info p-1" asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th class="p-1">
+               Name
+            </th>
+            <th class="p-1">
+                Model
+            </th>
+            <th class="p-1">
+                Color
+            </th>
+            <th class="p-1">
+                Type
+            </th>
+            <th class="p-1">
+                Year
+            </th>
+            <th class="p-1">
+                Price
+            </th>
+            <th class="p-1">
+                Available
+            </th>
+            <th class="p-1">
+                Image
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Kerri)
+        {
+            <tr>
+                <td class="p-1">
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td class="p-1">
+                    @Html.DisplayFor(modelItem => item.Model)
+                </td>
+                <td class="p-1">
+                    @Html.DisplayFor(modelItem => item.Color)
+                </td>
+                <td class="p-1">
+                    @Html.DisplayFor(modelItem => item.Type)
+                </td>
+                <td class="p-1">
+                    @Html.DisplayFor(modelItem => item.Year)
+                </td>
+                <td class="p-1">
+                    @Html.DisplayFor(modelItem => item.Price)
+                </td>
+                <td class="p-1">
+                    @Html.DisplayFor(modelItem => item.Available)
+                </td>
+                <td class="p-1">
+                    @Html.DisplayFor(modelItem => item.Image)
+                </td>
+                <td class="p-1">
+                    <a class="btn btn-success p-1" asp-action="Edit" asp-route-id="@item.id">Edit</a> |
+                    <a class="btn btn-warning p-1" asp-action="Details" asp-route-id="@item.id">Details</a> |
+                    <a class="btn btn-danger p-1" asp-action="Delete" asp-route-id="@item.id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+       }
+       else { }

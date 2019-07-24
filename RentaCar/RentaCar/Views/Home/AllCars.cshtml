@@ -1,0 +1,62 @@
+﻿@model IndexViewModel
+
+@{
+    ViewData["Title"] = "AllCars";
+    var prevDisabled = !Model.Cars.HasPreviousPage ? "disabled" : "";
+    var nextDisabled = !Model.Cars.HasNextPage ? "disabled" : "";
+}
+
+<div class="container mt-4">
+
+
+    <div class="col-md-9 m-auto">
+        <div class="row ">
+
+            @foreach (var Cars in Model.Cars)
+            {@if (Cars.Available == true) { 
+                    <div class="col-sm-4 col-lg-4 col-md-4">
+                        <div class="thumbnail mb-4">
+                            <img src="~/images/@Cars.Image" alt="" class="img-fluid">
+                            <div class="caption">
+
+                                <h5>
+                                    <span>@Cars.Name</span>
+                                </h5>
+
+                                <p class="m-1">@Cars.Model</p>
+                                <p class="m-0">@Cars.Price€</p>
+
+
+                            </div>
+
+                        </div>
+                    </div>
+        }}
+        </div>
+    </div>
+
+</div>
+<h1 class="m-5 p-5"></h1>
+
+<div class="container">
+    <ul class="nav justify-content-center m-4">
+        <li class="previous nav-item">
+            <a asp-action="AllCars"
+               asp-route-sortOrder="@ViewData["CurrentSort"]"
+               asp-route-page="@(Model.Cars.PageAllCars - 1)"
+               asp-route-currentFilter="@ViewData["CurrentFilter"]"
+               class="btn btn-outline-dark btn-lg pl-4 pr-4 mr-5 nav-link @prevDisabled">
+                &#8592;Previous
+            </a>
+        </li>
+        <li class="next nav-item">
+            <a asp-action="AllCars"
+               asp-route-sortOrder="@ViewData["CurrentSort"]"
+               asp-route-page="@(Model.Cars.PageAllCars + 1)"
+               asp-route-currentFilter="@ViewData["CurrentFilter"]"
+               class="btn btn-outline-dark btn-lg  pl-5 pr-5 ml-5 nav-link @nextDisabled">
+                Next&#8594;
+            </a>
+        </li>
+    </ul>
+</div>

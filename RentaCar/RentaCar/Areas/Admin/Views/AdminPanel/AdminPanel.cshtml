@@ -1,0 +1,8 @@
+﻿@inject UserManager<IdentityUser> UserManager
+@{
+    ViewData["Title"] = "AdminPanel";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<h1>HELLO @UserManager.GetUserName(User)</h1>
+

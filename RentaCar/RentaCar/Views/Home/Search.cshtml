@@ -1,0 +1,48 @@
+﻿@model RentaCar.Areas.Admin.Models.Cars
+@{
+    ViewData["Title"] = "Search";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h1 class="m-4 p-4"></h1>
+
+<div class="container">
+    <p>You search for this type of cars :</p>
+
+
+
+    <div class="col-md-9 m-auto">
+        <div class="row ">
+            @foreach (var Cars in Model.Carss)
+            {@if (Cars.Available == true)
+                {
+                    <div class="col-sm-4 col-lg-4 col-md-4">
+                        <div class="thumbnail mb-4">
+                            <img src="~/images/@Cars.Image" alt="" class="img-fluid">
+                            <div class="caption">
+                                <h5>
+                                    <span>@Cars.Name</span>
+                                </h5>
+
+                                <p class="m-1">@Cars.Model</p>
+                                <p class="m-0">@Cars.Price€</p>
+
+
+                            </div>
+
+                        </div>
+                    </div>
+    }
+}
+        </div>
+    </div>
+</div>
+<div class="container text-center">
+    <a asp-controller="Home" asp-action="AllCars" class="btn btn-outline-danger">All Cars</a>
+</div>
+<h1 class="m-4 p-4"></h1>
+<h1 class="m-4 p-4"></h1>
+<h1 class="m-4 p-4"></h1>
+<h1 class="m-4 p-4"></h1>
+<h1 class="m-4 p-4"></h1>
+<h1 class="m-4 p-4"></h1>
+<h1 class="m-4 p-4"></h1>

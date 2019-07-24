@@ -1,0 +1,42 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+    <UserSecretsId>aspnet-RentaCar-1A77935C-CE25-44C2-B490-4F84AA3569AB</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Data\Migrations\20190206134023_UseratAutosallonatEtj.cs" />
+    <Compile Remove="Data\Migrations\20190206134023_UseratAutosallonatEtj.Designer.cs" />
+    <Compile Remove="Data\Migrations\20190206143647_seedChanges.cs" />
+    <Compile Remove="Data\Migrations\20190206143647_seedChanges.Designer.cs" />
+    <Compile Remove="Data\Migrations\20190206173641_seedRoleChanged.cs" />
+    <Compile Remove="Data\Migrations\20190206173641_seedRoleChanged.Designer.cs" />
+    <Compile Remove="Data\Migrations\20190206230043_listkerrev.cs" />
+    <Compile Remove="Data\Migrations\20190206230043_listkerrev.Designer.cs" />
+    <Compile Remove="Data\Migrations\20190207175744_almostdone.cs" />
+    <Compile Remove="Data\Migrations\20190207175744_almostdone.Designer.cs" />
+    <Compile Remove="Data\Migrations\20190207180004_almostdone2.cs" />
+    <Compile Remove="Data\Migrations\20190207180004_almostdone2.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.App" />
+    <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.1.2" PrivateAssets="All" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.1.5" PrivateAssets="All" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Areas\Identity\Services\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Update="Areas\Admin\Views\_ViewImports.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Areas\Admin\Views\_ViewStart.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+  </ItemGroup>
+
+</Project>

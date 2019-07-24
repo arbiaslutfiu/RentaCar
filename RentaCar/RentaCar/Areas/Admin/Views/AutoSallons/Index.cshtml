@@ -1,0 +1,44 @@
+﻿@model IEnumerable<RentaCar.Areas.Admin.Models.AutoSallon>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    <a class="btn btn-info p-1" asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.ActionLink(" Name", "Index", new { sortOrder = ViewBag.NameSortParm })
+            </th>
+            <th>
+                
+                @Html.ActionLink(" SuperAcount", "Index", new { sortOrder = ViewBag.PriceSortParm })
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SuperAcount.Email)
+            </td>
+            <td>
+                <a class="btn btn-success p-1" asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a class="btn btn-warning p-1" asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a class="btn btn-info p-1" asp-action="ManageUsers" asp-route-id="@item.Id">Manage users</a> |
+                <a class="btn btn-danger p-1" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

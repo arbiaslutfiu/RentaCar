@@ -1,0 +1,65 @@
+﻿@page
+@model LoginModel
+
+@{
+    ViewData["Title"] = "Log in";
+}
+<h1 class="m-4 p-4"></h1>
+
+<div class="container">
+
+
+    <div class="row justify-content-center m-5">
+        <div class="col-md-4 justify-content-center">
+            <section class="border border-dark p-5">
+                <h2 class="text-center">@ViewData["Title"]</h2>
+                <form method="post">
+
+                    <hr />
+                    <div asp-validation-summary="All" class="text-danger"></div>
+                    <div class="form-group">
+                        <label asp-for="Input.Email"></label>
+                        <input asp-for="Input.Email" class="form-control" />
+                        <span asp-validation-for="Input.Email" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Input.Password"></label>
+                        <input asp-for="Input.Password" class="form-control" />
+                        <span asp-validation-for="Input.Password" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <div class="checkbox">
+                            <label asp-for="Input.RememberMe">
+                                <input asp-for="Input.RememberMe" />
+                                @Html.DisplayNameFor(m => m.Input.RememberMe)
+                            </label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-success">Log in</button>
+                    </div>
+                    <div class="form-group">
+                        <p>
+                            <a asp-page="./ForgotPassword">Forgot your password?</a>
+                        </p>
+                        <p>
+                            @if (ViewContext.HttpContext.User.IsInRole("Admin"))
+                            {
+                                <a asp-page="./Register" asp-route-returnUrl="@Model.ReturnUrl">Register as a new user</a>
+                            }
+
+                        </p>
+                    </div>
+                </form>
+            </section>
+        </div>
+    </div>
+
+    @section Scripts {
+        <partial name="_ValidationScriptsPartial" />
+    }
+</div>
+<h1 class="m-4 p-4"></h1>
+<h1 class="m-4 p-4"></h1>
+<h1 class="m-4 p-4"></h1>
+<h1 class="m-4 p-4"></h1>

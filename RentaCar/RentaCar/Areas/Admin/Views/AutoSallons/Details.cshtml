@@ -1,0 +1,31 @@
+﻿@model RentaCar.Areas.Admin.Models.AutoSallon
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>AutoSallon</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.SuperAcount)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.SuperAcount.UserName)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a class="btn btn-success p-1" asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
+    <a class="btn btn-dark text-light p-1" asp-action="Index">Back to List</a>
+</div>
